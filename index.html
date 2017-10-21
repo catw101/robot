@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--Catelen Wu-->
+<html>
+	<head>
+		<title>Robot Builder</title>		
+		
+		<script>
+			function initialize()
+			{
+				p = 0;
+				e = 0;
+				s = 0;
+				b = "";
+				img1 = "baymax.jpg";
+				img2 = "walle.png";
+				img3 = "eve.jpg";
+				power = document.getElementById("power");
+				energy = document.getElementById("energy");
+				speed = document.getElementById("speed");
+				defense = document.getElementById("defense");
+				attack = document.getElementById("attack");
+				battery = document.getElementById("battery");
+				changeImg = document.getElementById("changeImg");
+				words = document.getElementById("words");
+			}
+			function changePower(num)
+			{
+				p = p + num;
+				if (p < 0)
+					p = 0;
+				display();
+			}
+			function changeEnergy(num)
+			{
+				e = e + num;
+				if (e < 0)
+					e = 0;
+				display();
+			}
+			function changeSpeed(num)
+			{
+				s = s + num;
+				if (s < 0)
+					s = 0;
+				display();
+			}
+			function defenseMode()
+			{
+				if (defense.innerHTML == "Off")
+					defense.innerHTML = "On";
+				else
+					defense.innerHTML = "Off";
+			}
+			function attackMode()
+			{
+				if (attack.innerHTML == "Off")
+					attack.innerHTML = "On";
+				else 
+					attack.innerHTML = "Off";
+			}
+			function solar()
+			{
+				b = "Solar";
+				display();
+			}
+			function nuclear()
+			{
+				b = "Nuclear";
+				display();
+			}
+			function electric()
+			{
+				b = "Electric";
+				display();
+			}
+			function display()
+			{
+				power.innerHTML = p;
+				energy.innerHTML = e;
+				speed.innerHTML = s;
+				battery.innerHTML = b;
+			}
+			function changePic(img)
+			{
+				changeImg.src = img;
+			}
+			function changeWords(word)
+			{
+				words.innerHTML = word;
+				display();
+			}
+		</script>
+		<style>
+			body {
+				background-color: #edfff6;
+			}
+			p {
+				font: bold 25pt copperplate gothic;
+				color: #4dcbbf;
+				text-decoration: underline;
+				text-align: center;
+			}
+			.properties {
+				color: #7bd8ab;
+				font: 20pt copperplate gothic;
+				text-align: center;
+			}
+			button {
+				color: #7bd8ab;
+				font: 17pt copperplate gothic;
+			}
+			h5 {
+				text-align: center;
+			}
+			h6 {
+				text-align: center;
+			}
+			.imgs img {
+				width: 10%;
+				height: 10%;
+			}
+		</style>
+	</head>
+	
+	<body onload="initialize();">
+	<p>Are you ready to build your robot?</p><hr/>
+	<div class = "properties">Increase/Decrease Amount of Power: <span id="power">0</span>
+	<button onclick="changePower(1);">&#8593;</button>
+	<button onclick="changePower(-1);">&#8595;</button>
+	<hr/>
+	<div>Increase/Decrease Amount of Energy: <span id="energy">0</span>
+	<button onclick="changeEnergy(1);">&#8593;</button>
+	<button onclick="changeEnergy(-1);">&#8595;</button>
+	<hr/>
+	<div>Increase/Decrease Amount of Speed: <span id="speed">0</span>
+	<button onclick="changeSpeed(1);">&#8593;</button>
+	<button onclick="changeSpeed(-1);">&#8595;</button>
+	<hr/>
+	<div>Defense Mode: <span id="defense">Off</span>
+	<button onclick="defenseMode();">On/Off</button>
+	<hr/>
+	<div>Attack Mode: <span id="attack">Off</span>
+	<button onclick="attackMode();">On/Off</button>
+	<hr/>
+	<div>Battery Type: <span id="battery"></span>
+	<button onclick="solar();">Solar</button>
+	<button onclick="nuclear();">Nuclear</button>
+	<button onclick="electric();">Electric</button>
+	<hr/>
+	</div>
+	<h6><img src = "" id = "changeImg"/></h6>
+	<h5><span id = "words">Select one of the lovable robots from below!</span></h5>
+	<div id = "imgs">
+	<img src = "baymax.jpg" onclick = "changePic(img1); changeWords('On a scale of 1 to 10, how would you rate your pain?');"/>
+	<img src = "walle.png" onclick = "changePic(img2); changeWords('Ta-dah!');"/>
+	<img src = "eve.jpg" onclick = "changePic(img3); changeWords('Classified.');"/>
+	</div>
+	</body>
+</html>
